@@ -16,7 +16,7 @@ message Message {
     optional int64 recipient_id = 8;//收件人
     optional int32 sequence_id = 10;//序列号
     optional int64 pre_message_id = 11;//
-    Payload playLoad = 12;
+    Payload payload = 12;
     optional string  conversationId = 13;//会话id
 }
 
