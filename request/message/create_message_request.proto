@@ -5,7 +5,7 @@ package im.turms.proto;
 option java_package = "im.turms.server.common.access.client.dto.request.message";
 option java_multiple_files = true;
 option swift_prefix = "";
-import "model/message/PlayLoad.proto";
+import "model/message/payload.proto";
 message CreateMessageRequest {
     optional int64 message_id = 1;//本地生成消息id 可不传输
     // is_system_message can only be true if the user is an administrator,
@@ -17,5 +17,5 @@ message CreateMessageRequest {
     repeated bytes records = 7;//二进制消息
     optional int32 burn_after = 8;//
     optional int64 pre_message_id = 9;
-    PlayLoad playLoad = 10;
+    Payload payload = 10;
 }

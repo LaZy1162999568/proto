@@ -5,7 +5,7 @@ package im.turms.proto;
 option java_package = "im.turms.server.common.access.client.dto.model.message";
 option java_multiple_files = true;
 option swift_prefix = "";
-import "model/message/PlayLoad.proto";
+import "model/message/payload.proto";
 message Message {
     optional int64 id = 1;
     optional int64 delivery_date = 2;//发送时间
@@ -16,7 +16,8 @@ message Message {
     optional int64 recipient_id = 8;//收件人
     optional int32 sequence_id = 10;//序列号
     optional int64 pre_message_id = 11;//
-    PlayLoad playLoad = 12;
+    Payload playLoad = 12;
+    optional string  conversationId = 13;//会话id
 }
 
 

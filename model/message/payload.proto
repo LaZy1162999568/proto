@@ -6,7 +6,7 @@ option java_package = "im.turms.server.common.access.client.dto.model.message";
 option java_multiple_files = true;
 option swift_prefix = "";
 //位置消息
-message PlayLoad{
+message Payload{
   oneof data{
       ImageMessage image = 1;
       TextMessage text = 2;
