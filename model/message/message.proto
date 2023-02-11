@@ -6,18 +6,23 @@ option java_package = "im.turms.server.common.access.client.dto.model.message";
 option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/payload.proto";
+enum Type{
+    PRIVATE = 0;
+    GROUP = 1;
+    SYSTEM = 2;
+}
 message Message {
     optional int64 id = 1;
     optional int64 delivery_date = 2;//发送时间
     optional int64 modification_date = 3;//修改时间
     optional int64 sender_id = 5;//发送者id
     optional int64 group_id = 6;//群聊id
-    optional bool is_system_message = 7;//是否系统消息
+    optional Type type = 7;//消息类型;
     optional int64 recipient_id = 8;//收件人
     optional int32 sequence_id = 10;//序列号
-    optional int64 pre_message_id = 11;//
+    optional int64 pre_message_id = 11;//上一条消息的id
     Payload payload = 12;
-    optional string  conversationId = 13;//会话id
+    optional int64 conversationId = 13;//会话id
 }
 
 

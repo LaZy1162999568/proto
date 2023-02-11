@@ -7,7 +7,7 @@ option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/payload.proto";
 message CreateMessageRequest {
-    optional int64 message_id = 1;//本地生成消息id 可不传输
+    optional int64 message_id = 1;//引用消息传递消息id
     // is_system_message can only be true if the user is an administrator,
     // or turms server will return an error
     optional bool is_system_message = 2;//系统消息
