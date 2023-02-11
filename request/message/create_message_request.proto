@@ -13,9 +13,13 @@ message CreateMessageRequest {
     optional bool is_system_message = 2;//系统消息
     optional int64 group_id = 3;//群组id
     optional int64 recipient_id = 4;//收件人id
-    optional int64 delivery_date = 5;//本地发送消息时间
-    repeated bytes records = 7;//二进制消息
+    optional int64 sender_id = 5;//发送者id
+    optional int64 delivery_date = 6;//本地发送消息时间
+    optional int32 sequence_id = 7;//序列号
     optional int32 burn_after = 8;//
-    optional int64 pre_message_id = 9;
+    optional int64 pre_message_id = 9;//上一条消息的id
     Payload payload = 10;
+    optional int64 conversationId = 13;//会话id
+    repeated bytes records = 15;//二进制消息 不使用
+
 }
