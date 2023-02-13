@@ -13,6 +13,6 @@ message Conversations {
     repeated PrivateConversation private_conversations = 1;
     repeated GroupConversation group_conversations = 2;
     repeated Conversation conversation = 3;//会话列表
-    repeated int64 last_sync_time = 4;//服务器当前时间
+    optional int64 last_sync_time = 4;//服务器当前时间
 
 }
