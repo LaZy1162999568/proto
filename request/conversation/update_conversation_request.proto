@@ -7,10 +7,6 @@ option java_multiple_files = true;
 option swift_prefix = "";
 
 message UpdateConversationRequest {
-    // Query filter
-    optional int64 target_id = 1;
-    optional int64 group_id = 2;
-
-    // Update
-    int64 read_date = 3;
+  optional string conversationId = 1;//会话id
+  optional bool top = 2;//是否置顶;
 }

@@ -23,5 +23,7 @@ message Conversation {
   repeated int64 target_ids = 9;//存储参与该单聊的用户集合
   // Group conversations
   repeated int64 group_ids = 10;//参与该群聊的用户集合
+
+  bool  mute = 11;//是否免打扰
 }
 
