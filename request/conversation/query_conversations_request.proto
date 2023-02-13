@@ -7,5 +7,5 @@ option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/message.proto";
 message QueryConversationsRequest {
-  repeated int64 target_ids = 1;
+  optional int64 last_sync_time = 1;
 }

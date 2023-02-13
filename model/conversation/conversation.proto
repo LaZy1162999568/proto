@@ -6,9 +6,10 @@ option java_package = "im.turms.server.common.access.client.dto.model.conversati
 option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/message.proto";
+//proto3 由于字段为默认值（比如0值、空串、false等），导致输出json对应字段被隐藏
 
 message Conversation {
-  int64 Conversation_id = 1;//会话id
+  string Conversation_id = 1;//会话id
   int32 type = 2;//会话类型 单聊是0 群聊是1;
   int64  targetId = 3;//目标id 如果会话类型是单聊会存储对象的userid，如果是群聊 就是群id
 
