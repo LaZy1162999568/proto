@@ -20,7 +20,7 @@ message Payload{
 message ImageMessage{
   string url = 4;//图片地址
   string uuid = 2;//图片唯一标识
-  int32 imageFormat = 3;//图片格式类型
+  string imageFormat = 3;//图片格式类型
 }
 message TextMessage{
   string context = 4;//消息内容
