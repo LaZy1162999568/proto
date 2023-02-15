@@ -47,7 +47,7 @@ message TurmsNotification {
     optional int64 requester_id = 10;
     optional int32 close_status = 11;
     TurmsRequest relayed_request = 12;
-
+    string kind = 13;
     message Data {
         oneof kind {
             // Common
