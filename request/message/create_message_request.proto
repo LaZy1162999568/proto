@@ -21,4 +21,7 @@ message CreateMessageRequest {
     Payload payload = 10;
     optional string conversationId = 13;//会话id
     repeated bytes records = 15;//二进制消息 不使用
+    repeated int64 atUserIds = 16;//at用户id
+    bool needAck = 17;//是否需要回复
+    bool
 }

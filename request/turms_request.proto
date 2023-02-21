@@ -76,11 +76,13 @@ import "request/group/member/update_group_member_request.proto";
 import "request/conversation/query_conversations_request.proto";
 import "request/conversation/update_conversation_request.proto";
 import "request/conversation/update_typing_status_request.proto";
+import "request/conversation/create_conversations_request.proto";
 
 // Message
 import "request/message/create_message_request.proto";
 import "request/message/query_messages_request.proto";
 import "request/message/update_message_request.proto";
+import "request/message/receive_message_request.proto";
 
 // Client -> Server -> Client
 message TurmsRequest {
@@ -97,11 +99,13 @@ message TurmsRequest {
         QueryConversationsRequest query_conversations_request = 5;
         UpdateConversationRequest update_conversation_request = 6;
         UpdateTypingStatusRequest update_typing_status_request = 7;
+        CreateConversationsRequest create_conversations_request = 15;
 
         // Message
         CreateMessageRequest create_message_request = 8;
         QueryMessagesRequest query_messages_request = 9;
         UpdateMessageRequest update_message_request = 10;
+        ReceiveMessageRequest receive_message_request=16;
 
         // Group Member
         CreateGroupMembersRequest create_group_members_request = 11;

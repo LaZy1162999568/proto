@@ -2,30 +2,18 @@ syntax = "proto3";
 
 package im.turms.proto;
 
-option java_package = "im.turms.server.common.access.client.dto.model.conversation";
+option java_package = "im.turms.server.common.access.client.dto.request.conversation";
 option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/message.proto";
-//proto3 由于字段为默认值（比如0值、空串、false等），导致输出json对应字段被隐藏
-
-message Conversation {
+message CreateConversationsRequest {
   string Conversation_id = 1;//会话id
   string type = 2;//会话类型 单聊是PRIVATE 群聊是GROUP;
   int64  targetId = 3;//目标id 如果会话类型是单聊会存储对象的userid，如果是群聊 就是群id
-
   Message lastMsg = 4;//会话最后一条消息
-
   int32  unread = 5;//会话未读数量
   int64  owner = 6;//如果是单聊这里保存的是发起单聊的用户id，如果是群聊这个是群id
   bool top =7;//会话是否置顶
   string  status = 8;//会话状态  ACTIVE  DELETE
-  // Private conversations
-  repeated int64 target_ids = 9;//存储参与该单聊的用户集合
-  // Group conversations
-  repeated int64 group_ids = 10;//参与该群聊的用户集合
-
   bool  mute = 11;//是否免打扰
-
-  repeated int32  groupAtInfo = 13;//群组AT  1 AT我  2AT所有人  3群里AT所有人并单独AT我
 }
-

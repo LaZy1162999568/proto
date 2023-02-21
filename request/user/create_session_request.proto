@@ -11,7 +11,7 @@ import "constant/user_status.proto";
 import "model/user/user_location.proto";
 
 message CreateSessionRequest {
-    int32 version = 1;
+    string version = 1;
 
     int64 user_id = 2;
     optional string password = 3;
