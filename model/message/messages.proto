@@ -10,4 +10,5 @@ import "model/message/message.proto";
 
 message Messages {
     repeated Message messages = 1;
+    optional int32 count  =  2;
 }

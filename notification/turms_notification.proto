@@ -46,7 +46,7 @@ message TurmsNotification {
     // a new TurmsNotification when recipients need "requester_id".
     optional int64 requester_id = 10;
     optional int32 close_status = 11;
-    TurmsRequest relayed_request = 12;
+    TurmsRequest relayed_request = 12;//推送消息
     string kind = 13;
     message Data {
         oneof kind {
@@ -60,7 +60,7 @@ message TurmsNotification {
             Conversations conversations = 5;
 
             // Message
-            Messages messages = 6;
+            Messages messages = 6;//查询消息烦恼会
             MessagesWithTotalList messages_with_total_list = 7;
 
             // User

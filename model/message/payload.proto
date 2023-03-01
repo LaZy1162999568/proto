@@ -15,6 +15,7 @@ message Payload{
       FileMessage file = 5;
       LocationMessage local = 6;
       VideoMessage video = 7;
+      AtSignedMessage at = 8;
   }
 }
 message ImageMessage{
@@ -54,4 +55,13 @@ message VideoMessage{
   string thumbUrl = 10;//视频封面图地址
   float thumbHeight = 11;//封面图片高度
   float snapshotWidth = 12;//封面图片宽度
+}
+/**
+  创建 @ 消息
+ */
+message AtSignedMessage{
+  optional TextMessage message = 2;//原来的消息
+  repeated int64 atList=1;//需要 @ 的用户列表，如果需要 @ALL，请传入 AT_ALL_TAG 常量字符串，需要 @ 的用户列表，如果需要 @ALL，请传入 AT_ALL_TAG 常量字符串 默认情况下，最多支持 @ 30个用户，超过限制后，消息会发送失败。
+  optional bool  atAll = 3;// AT全体成员
+
 }

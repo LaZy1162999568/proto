@@ -7,6 +7,7 @@ option java_multiple_files = true;
 option swift_prefix = "";
 
 message QueryMessagesRequest {
+
     repeated int64 ids = 1;
     optional bool are_group_messages = 2;
     optional bool are_system_messages = 3;
@@ -15,4 +16,13 @@ message QueryMessagesRequest {
     optional int64 delivery_date_before = 6;
     optional int32 max_count = 7;
     bool with_total = 8;
+    bool direction = 15;//是否正向查找消息
+
+
+    optional int64 target =9;//目标id
+    optional string conversationId = 10;//会话id
+    optional string type = 11;//"PRIATE、GROUP"
+    optional int64 beforeTimestamp = 12;// 之前的时间戳
+    optional int64 afterTimestamp=13;//之后的时间戳
+    optional int32  count = 14;//获取的消息条数
 }
