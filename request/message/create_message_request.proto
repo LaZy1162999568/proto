@@ -7,7 +7,7 @@ option java_multiple_files = true;
 option swift_prefix = "";
 import "model/message/payload.proto";
 message CreateMessageRequest {
-    optional int64 message_id = 1;//引用消息传递消息id
+    optional int64 message_id = 1;//消息的id当服务端下发消息时存在
     // is_system_message can only be true if the user is an administrator,
     // or turms server will return an error
     optional bool is_system_message = 2;//系统消息
@@ -18,7 +18,7 @@ message CreateMessageRequest {
     optional int32 sequence_id = 7;//序列号
     optional int32 burn_after = 8;//
     optional int64 pre_message_id = 9;//上一条消息的id
-    Payload payload = 10;
+    Payload payload = 10;//消息体
     optional string conversationId = 13;//会话id
     repeated bytes records = 15;//二进制消息 不使用
     repeated int64 atUserIds = 16;//at用户id

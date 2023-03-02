@@ -30,24 +30,24 @@ import "model/user/user_session.proto";
 
 message TurmsNotification {
     // Common => [1, 3]
-    int64 timestamp = 1;
+    int64 timestamp = 1;//时间戳
 
     // Response => [4, 9]
     // "request_id" is used to tell the client that
     // this notification is a response to the specific request
-    optional int64 request_id = 4;
-    optional int32 code = 5;
-    optional string reason = 6;
+    optional int64 request_id = 4;//请求id
+    optional int32 code = 5;//响应状态码
+    optional string reason = 6;//响应描述书
     Data data = 7;
 
     // Notification => [10, 15]
     // "requester_id" only exists when a requester triggers a notification to its recipients
     // Note: Do not move "requester_id" to TurmsRequest because it requires rebuilding
     // a new TurmsNotification when recipients need "requester_id".
-    optional int64 requester_id = 10;
-    optional int32 close_status = 11;
-    TurmsRequest relayed_request = 12;//推送消息
-    string kind = 13;
+    optional int64 requester_id = 10;//请求者的id
+    optional int32 close_status = 11;//连接关闭时的状态码
+    TurmsRequest relayed_request = 12;//转发消息，通知消息
+    string kind = 13;//请求业务类型
     message Data {
         oneof kind {
             // Common
@@ -57,10 +57,10 @@ message TurmsNotification {
             StringsWithVersion strings_with_version = 4;
 
             // Conversation
-            Conversations conversations = 5;
+            Conversations conversations = 5;//查询会话返回
 
             // Message
-            Messages messages = 6;//查询消息烦恼会
+            Messages messages = 6;//查询消息返回
             MessagesWithTotalList messages_with_total_list = 7;
 
             // User
