@@ -49,6 +49,7 @@ message TurmsNotification {
     optional int32 close_status = 11;//连接关闭时的状态码
     TurmsRequest relayed_request = 12;//转发消息，通知消息
     string kind = 13;//请求业务类型
+    int32  kindCode = 14;//请求业务类型码
     message Data {
         oneof kind {
             // Common
