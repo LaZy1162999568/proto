@@ -19,9 +19,13 @@ message Payload{
   }
 }
 message ImageMessage{
-  string url = 4;//图片地址
+  string url = 1;//图片地址
   string uuid = 2;//图片唯一标识
   string imageFormat = 3;//图片格式类型
+  float width = 4;//宽
+  float height = 5;//高
+  string ext = 6;//后缀
+  int64 size = 7;//大小
 }
 message TextMessage{
   string context = 4;//消息内容
