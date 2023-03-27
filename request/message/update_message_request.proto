@@ -14,4 +14,5 @@ message UpdateMessageRequest {
     int32 type  = 3;//操作类型：1 撤回消息 2 修改消息 3 删除消息
     int64 timestamp = 4;//操作时间
     int64 operator = 5;//操作者
+    int64 recallDate = 6;//撤回时间
 }
