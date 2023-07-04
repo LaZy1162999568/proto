@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+import "request/message/update_message_request.proto";
+import "model/message/payload.proto";
+import "request/notify/clean_group_message.proto";
+import "request/notify/clean_private_message.proto";
+message QueryOfflineNotify  {
+  optional  int64 id = 1;//通知id
+  optional bool isGroup=2;//是否是群组查询
+  optional bool isSystem = 3;//是否是系统消息
+  optional int64 senderId = 4;//通知发送者
+  optional int64 targetId = 5;//查询群组是传递群组的id，私聊是服务器查询当前发起人的
+  optional int64 create_time = 6;//通知创建时间
+  optional int64 message_id = 8;//查询离线通知时传递，如果 id和messageid 同时为0 时 将最多只返回最新的一条通知消息，如果  通知id 为0 消息id不为0 则返回 所有的通知， 如果通知id 不为0 消息id为0或不为0 则返回大于通知id 的通知
+  Data data = 7;
+  message Data{
+    oneof  kind{
+      UpdateMessageRequest update_message_request = 1;
+      AtSignedMessage at = 2;
+      CleanGroupMessage clean_group_message = 3;
+      CleanPrivateMessage clean_private_message =4;
+    }
+  }
+}
+

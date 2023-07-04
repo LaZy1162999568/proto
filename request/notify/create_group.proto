@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+//创建群组
+message CreateGroup {
+  optional int64 groupId = 1;//群组id
+  optional string groupName =3;//群组昵称
+  optional string groupIcon = 4;//群组头像
+}

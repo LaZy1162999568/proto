@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+import "request/message/create_message_request.proto";
+message CreateMultiMessageRequest {
+  repeated  Status  status = 1;
+}
+message Status{
+  optional int32 code = 1;
+  optional  string reason  =2;
+  optional CreateMessageRequest createMessageRequest = 3;
+  optional string uuid = 4 ;
+  optional int64 targetId = 5;
+  optional bool isGroup = 6;
+}
+

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message GroupInvite {
+  optional int64 groupId = 1;
+  optional int64 senderId = 2;//邀请人id
+  optional string groupName = 3;
+  optional string groupIcon =5;
+  optional string nickName = 6;//邀请人昵称
+  optional string headerImage = 7;//邀请人头像
+  optional int32 mode = 8;//1需要同意 2、不需要同意
+}

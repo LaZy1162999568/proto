@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.model.user";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UserSession {
+    string session_id = 1;
+    string server_id = 2;
+}

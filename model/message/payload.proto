@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.model.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+//位置消息
+message Payload{
+  oneof data{
+      ImageMessage image = 1;
+      TextMessage text = 2;
+      AudioMessage audio = 3;
+      CustomMessage custom = 4;
+      FileMessage file = 5;
+      LocationMessage local = 6;
+      VideoMessage video = 7;
+      AtSignedMessage at = 8;
+      CardMessage cardMessage = 9;
+      RecallMessage recall = 10;
+      Envelope envelope=11;
+  }
+}
+message ImageMessage{
+  string url = 1;//图片地址
+  string uuid = 2;//图片唯一标识
+  string imageFormat = 3;//图片格式类型
+  float width = 4;//宽
+  float height = 5;//高
+  string ext = 6;//后缀
+  int64 size = 7;//大小
+}
+message TextMessage{
+  string context = 4;//消息内容
+}
+message AudioMessage{
+  int64 second = 4;//语音时长
+  string url = 5;
+  string ext = 6;//后缀
+  uint64 size = 7;//大小
+  string uuid = 8;//唯一标识
+}
+message CustomMessage{
+  string context = 1;//自定义消息内容
+}
+message FileMessage{
+  string url = 1;//文件地址
+  string name = 4;//文件名称
+  string ext = 8;//后缀
+  int64 size = 9;//大小
+  string uuid = 10;//唯一标识
+}
+message LocationMessage{
+  string title = 4;//地址位置title
+  double lng = 5;//经度
+  double lat = 6;//纬度
+}
+message VideoMessage{
+  string url = 4; //视频地址
+  int64 second = 5;//时长
+  float width = 6;//宽
+  float height = 7;//高
+  string ext = 8;//后缀
+  int64 size = 9;//大小
+  string thumbUrl = 10;//视频封面图地址
+  float thumbHeight = 11;//封面图片高度
+  float snapshotWidth = 12;//封面图片宽度
+  string uuid = 13;//唯一标识
+}
+/**
+  创建 @ 消息
+ */
+message AtSignedMessage{
+  optional TextMessage message = 2;//原来的消息
+  repeated int64 atList=1;//需要 @ 的用户列表， 默认情况下，最多支持 @ 30个用户，超过限制后，消息会发送失败。
+  optional bool  atAll = 3;// AT全体成员
+}
+
+message  CardMessage{
+  optional int64  uid = 1;//被推荐的用户id
+  optional string nickName = 2;//用户昵称
+  optional string headImage=3;//头像
+  optional int64  referrer =4;//推荐者的id
+}
+message RecallMessage{
+  optional int64  messageId = 1;
+}
+message Envelope{
+  optional double amount = 1;//金额
+  optional string text = 2;//祝福语
+  optional int32 total = 3;//红包个数
+  optional int32 type =4;//红包类型  1、一对一 2、群发普通 3.群发手气红包
+}

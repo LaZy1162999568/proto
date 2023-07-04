@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message DelGroup {
+  optional int64 groupId = 1;
+  optional int64 senderId = 2;
+  optional string groupName = 3;
+  optional string groupIcon = 4;
+}

@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.notification";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+import "request/turms_request.proto";
+
+import "model/common/longs_with_version.proto";
+import "model/common/strings_with_version.proto";
+import "model/group/group_invitations_with_version.proto";
+import "model/group/group_join_questions_answer_result.proto";
+import "model/group/group_join_questions_with_version.proto";
+import "model/group/group_join_requests_with_version.proto";
+import "model/group/group_members_with_version.proto";
+import "model/group/groups_with_version.proto";
+import "model/conversation/conversations.proto";
+import "model/message/messages.proto";
+import "model/message/messages_with_total_list.proto";
+import "model/storage/storage_resource_infos.proto";
+import "model/user/nearby_users.proto";
+import "model/user/user_friend_requests_with_version.proto";
+import "model/user/user_infos_with_version.proto";
+import "model/user/user_online_statuses.proto";
+import "model/user/user_relationship_groups_with_version.proto";
+import "model/user/user_relationships_with_version.proto";
+import "model/user/user_session.proto";
+import "model/message/message.proto";
+import "request/message/update_message_request.proto";
+import "request/message/create_multi_message_request.proto";
+import "request/envelope/update_take_envelope_request.proto";
+import "request/notify/query_offline_notifys.proto";
+import "request/user/create_user_status_listener.proto";//配置文件修改通知
+message TurmsNotification {
+    // Common => [1, 3]
+    int64 timestamp = 1;//时间戳
+
+    // Response => [4, 9]
+    // "request_id" is used to tell the client that
+    // this notification is a response to the specific request
+    optional int64 request_id = 4;//请求id
+    optional int32 code = 5;//响应状态码
+    optional string reason = 6;//响应描述书
+    Data data = 7;
+    optional int64  target = 8;
+
+    // Notification => [10, 15]
+    // "requester_id" only exists when a requester triggers a notification to its recipients
+    // Note: Do not move "requester_id" to TurmsRequest because it requires rebuilding
+    // a new TurmsNotification when recipients need "requester_id".
+    optional int64 requester_id = 10;//请求者的id
+    optional int32 close_status = 11;//连接关闭时的状态码
+    TurmsRequest relayed_request = 12;//转发消息，通知消息
+    string kind = 13;//请求业务类型
+    int32  kindCode = 14;//请求业务类型码
+    message Data {
+        oneof kind {
+            // Common
+            int64 long = 1;
+            string string = 2;
+            LongsWithVersion longs_with_version = 3;
+            StringsWithVersion strings_with_version = 4;
+
+            // Conversation
+            Conversations conversations = 5;//查询会话返回
+
+            // Message
+            Messages messages = 6;//查询消息返回
+            MessagesWithTotalList messages_with_total_list = 7;
+            Message message = 21;//发送消息返回
+            UpdateMessageRequest update_message_request=22;
+            CreateMultiMessageRequest create_multi_message_request = 23;
+            // User
+            UserSession user_session = 8;
+            UserInfosWithVersion user_infos_with_version = 9;
+            UserOnlineStatuses user_online_statuses = 10;
+            UserFriendRequestsWithVersion user_friend_requests_with_version = 11;
+            UserRelationshipGroupsWithVersion user_relationship_groups_with_version = 12;
+            UserRelationshipsWithVersion user_relationships_with_version = 13;
+            NearbyUsers nearby_users = 14;
+
+            //envelope
+            UpdateTakeEnvelopeRequest update_take_envelope_request = 24;
+
+            // Group
+            GroupInvitationsWithVersion group_invitations_with_version = 15;
+            GroupJoinQuestionsAnswerResult group_join_question_answer_result = 16;
+            GroupJoinRequestsWithVersion group_join_requests_with_version = 17;
+            GroupJoinQuestionsWithVersion group_join_questions_with_version = 18;
+            GroupMembersWithVersion group_members_with_version = 19;
+            GroupsWithVersion groups_with_version = 20;
+            // Storage
+            StorageResourceInfos storage_resource_infos = 50;
+            //离线通知
+            QueryOfflineNotifys query_offline_notifys = 51;
+
+            CreateUserStatusLitsener create_user_status_listener = 52;//
+        }
+    }
+}

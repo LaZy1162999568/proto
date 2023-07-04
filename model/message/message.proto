@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.model.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+import "model/message/payload.proto";
+
+message Message {
+    optional int64 id = 1;
+    optional int64 delivery_date = 2;//发送时间
+    optional int64 modification_date = 3;//修改时间
+    optional bool is_system_message = 4;//系统消息
+    optional string type = 7;//会话类型
+    optional int64 sender_id = 5;//发送者id
+    optional int64 targetId= 8;//收件人
+    optional int32 sequence_id = 10;//序列号
+    optional int64 pre_message_id = 11;//上一条消息的id
+    Payload payload = 12;//消息负载
+    optional string conversationId = 13;//会话id
+    optional bool isRead = 14;//是否已读
+    optional bool recall = 15;//消息是否已撤回
+    optional Reference reference = 16;//引用消息
+    optional bool del =17;//消息是否已经被删除
+    optional string nickName= 18;//群聊时 消息发送者的昵称
+    message Reference{
+        optional int64 messageId = 1;//消息id
+        optional bool recall  = 2;//是否撤回
+        optional Payload payload = 3;//引用消息内容;
+        optional bool del= 4;//是否删除
+        optional string nickName = 5;//原消息发送者的昵称
+        optional int64 userId = 6;//原消息发送者的id
+    }
+}
+
+
+
+
+
+
+
+

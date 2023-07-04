@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message GroupPrivate {
+  optional int64 groupId = 1;
+  optional int64 senderId = 2;
+  optional bool groupPrivate = 5;//是否禁言
+}

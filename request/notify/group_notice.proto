@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message GroupNotice {
+  optional int64 groupId = 1;
+  optional int64 senderId = 2;
+  optional string nickName = 3;
+  optional string headerImage = 4;
+  optional string notice = 5;
+}

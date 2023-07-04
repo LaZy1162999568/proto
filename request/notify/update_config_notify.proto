@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UpdateConfigNotify  {
+  optional string config = 1;
+  optional int32 type = 2;//配置类型  1 群组 2 基础配置 3 消息配置 4 注册配置 5 账户 6 签到配置 7 用户权限配置
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UpdateReadMessageRequest {
+  // Query filter
+  repeated int64 message_id = 1;
+  optional  int64  targetId = 2;//用户id
+}

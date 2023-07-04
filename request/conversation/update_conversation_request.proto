@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.conversation";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UpdateConversationRequest {
+  optional string conversationId = 1;//会话id
+  optional bool top = 2;//是否置顶;
+  optional bool cleanRead = 3;//清除会话未读数
+  optional bool  mute= 4;//静音
+  optional string  type =5;//类型 如PRIVATE
+  optional int64 targetId=6;//目标ID
+}

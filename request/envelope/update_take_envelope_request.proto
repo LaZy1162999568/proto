@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.envelope";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UpdateTakeEnvelopeRequest {
+
+  int64 message_id = 1;//红包的消息id
+  int64 userId = 2;//红包领取者的id  返回时携带
+  string nickName= 3;//红包领取者的昵称 领取时上传，返回时携带
+  double amount =4;//领取的金额
+  int64 group_id = 5; //群组id//群红包时不为空
+}

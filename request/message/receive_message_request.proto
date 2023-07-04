@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+import "model/message/payload.proto";
+message ReceiveMessageRequest {
+  optional int64 message_id = 1;//引用消息传递消息id
+  // is_system_message can only be true if the user is an administrator,
+  // or turms server will return an error
+  optional bool is_system_message = 2;//系统消息
+  optional int64 group_id = 3;//群组id
+  optional int64 recipient_id = 4;//收件人id
+  optional int64 sender_id = 5;//发送者id
+  optional int64 delivery_date = 6;//本地发送消息时间
+  optional int32 sequence_id = 7;//序列号
+  optional int32 burn_after = 8;//
+  optional int64 pre_message_id = 9;//上一条消息的id
+  Payload payload = 10;
+  optional string conversationId = 13;//会话id
+  optional bool isread = 14;//消息是否已读
+  repeated bytes records = 15;//二进制消息 不使用
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message UpdateGroupUserInfo {
+  optional int64 groupId = 1;
+  optional int64 uid = 2;//被操作者
+  repeated int64 uids = 6;//踢出群聊时 被踢出的用户id集合
+  optional string groupUserNotes =3;//	群成员备注
+  optional  int32 groupUserRole = 4;//群成员身份 1：群主 2：管理员 3：普通成员
+  optional int32 type = 5;//1 禁言  2、 群成员身份变更  3 移除群聊 、4 群成员备注变更、5退出群聊
+  optional string nickName = 7;//操作者的昵称
+  optional string headerImage = 8;//操作者的头像
+  optional bool mute = 9;//tyoe =1 时不为空
+  optional int64 senderId = 10;//发送者id
+}

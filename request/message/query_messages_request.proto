@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.message";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message QueryMessagesRequest {
+    repeated int64 ids = 1;//查询消息id
+    optional bool are_group_messages = 2;//是否群组消息
+    optional bool are_system_messages = 3;//是否系统消息
+    optional int64 targetId = 4;//查询与指定用户之间发送的消息
+    optional int32 max_count = 7;//查询消息最大数量
+    optional int64 startId=8;//开始id不包含
+    //optional int64 endId=9;//结束id 不包含
+    optional int32  limit = 10;//条数
+    optional bool  isAsc=11;//是否由下往上查询 true 从id小到大
+    int64  deliveryDateStart = 16;//开始时间
+    int64  deliveryDateEnd = 17;//结束时间
+    optional int32  count = 14;//获取的消息条数
+    optional string type = 15;//聊天类型 传递后返回在messages中 如PRIVATE、GROUP
+}
