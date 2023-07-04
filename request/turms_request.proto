@@ -103,7 +103,7 @@ import "request/notify/session_user_online_status.proto";//好友上下线通知
 import "request/notify/update_config_notify.proto";//配置文件修改通知
 import "request/user/create_user_status_listener.proto";//配置文件修改通知
 import "request/notify/create_account_cancellation.proto";//配置文件修改通知
-import "request/notify/update_password.proto";//密码修改
+import "request/notify/user_update_password_notify.proto";//密码修改
 
 // Client -> Server -> Client
 message TurmsRequest {
@@ -150,7 +150,7 @@ message TurmsRequest {
         SessionUserOnlineStatus user_online_status = 32;//用户在线状态
         UpdateConfigNotify update_config_notify = 33;//配置文件修改
         CreateAccountCancellation create_account_cancellation = 34;//注销
-        updatePassword update_password = 35;// 密码更改
+        UserUpdatePasswordNotify user_update_password_notify = 35;// 密码更改
         // Group Member
         CreateGroupMembersRequest create_group_members_request = 11;
         DeleteGroupMembersRequest delete_group_members_request = 12;
