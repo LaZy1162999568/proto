@@ -12,10 +12,10 @@ message UpdateMessageRequest {
     repeated int64 message_id = 1;
     // Update
     optional  Payload payload = 2;//修改消息内容
-    int32 type  = 3;//操作类型：1 撤回消息 2 修改消息 3 删除消息
-    int64 timestamp = 4;//操作时间
-    int64 operator = 5;//操作者
-    int64 targetId = 8;//目标id 如果是单聊传 对方id
-    string nickName = 9;// 用户昵称
+    optional int32 type  = 3;//操作类型：1 撤回消息 2 修改消息 3 删除消息
+    optional int64 timestamp = 4;//操作时间
+    optional int64 operator = 5;//操作者
+    optional int64 targetId = 8;//目标id 如果是单聊传 对方id
+    optional string nickName = 9;// 用户昵称
     int64 groupId = 10;//群组id 如果是群聊 传传递群聊id
 }

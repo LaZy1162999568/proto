@@ -26,6 +26,7 @@ message CreateMessageRequest {
     optional Reference reference= 18;//引用消息
     optional string nickName = 19;//原消息发送者的昵称
 
+
 }
 message Reference{
     optional int64 messageId = 1;//消息id

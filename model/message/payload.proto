@@ -19,6 +19,7 @@ message Payload{
       CardMessage cardMessage = 9;
       RecallMessage recall = 10;
       Envelope envelope=11;
+    GroupInvitationJoin groupInvitationJoin = 12;//群邀请入群 系统消息
   }
 }
 message ImageMessage{
@@ -90,4 +91,9 @@ message Envelope{
   optional string text = 2;//祝福语
   optional int32 total = 3;//红包个数
   optional int32 type =4;//红包类型  1、一对一 2、群发普通 3.群发手气红包
+}
+message GroupInvitationJoin{
+  optional int64 sender = 1;// 邀请者
+  repeated int64 target = 2;//被邀请者
+  optional int64 groupId = 3;//群ID
 }
