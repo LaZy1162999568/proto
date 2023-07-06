@@ -11,4 +11,5 @@ message SendFriendAdd  {
   optional string nickName = 3;
   optional string headerImage = 7;
   optional int32 mode= 6;//1 默认同意，2 待处理 3 默认拒绝
+  optional int64 relationId= 5;// 好友关系id 通过后不为空
 }

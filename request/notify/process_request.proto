@@ -15,4 +15,5 @@ message ProcessRequest  {
   optional string headerImage = 7;
   optional bool accept = 5;//接受、拒绝
   optional int32  recoredType = 8;//1好友申请 2、邀请入群、 3 申请入群
+  optional int64 relationId = 9;//关系id 好友申请通过后不为空
 }
