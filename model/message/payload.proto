@@ -21,7 +21,8 @@ message Payload{
       Envelope envelope=11;
       GroupInvitationJoin groupInvitationJoin = 12;//群邀请入群 系统消息
       GroupKickOut groupKickOut = 13;//踢出群聊
-    QuitGroup quitGroup = 14;//踢出群聊
+      QuitGroup quitGroup = 14;//踢出群聊
+      ApplyToGroup applyToGroup = 15;
   }
 }
 message ImageMessage{
@@ -94,10 +95,16 @@ message Envelope{
   optional int32 total = 3;//红包个数
   optional int32 type =4;//红包类型  1、一对一 2、群发普通 3.群发手气红包
 }
+//邀请加入群聊
 message GroupInvitationJoin{
   optional int64 sender = 1;// 邀请者
   repeated int64 target = 2;//被邀请者
   optional int64 groupId = 3;//群ID
+}
+//申请加入群聊
+message ApplyToGroup{
+  optional int64 uid = 1;//申请人id
+  optional int64 groupId = 2;//群id
 }
 message  GroupKickOut{
     optional int64 sender = 1;//操作者
