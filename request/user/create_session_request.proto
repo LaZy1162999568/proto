@@ -19,4 +19,5 @@ message CreateSessionRequest {
     DeviceType device_type = 5;
     map<string, string> device_details = 6;
     optional UserLocation location = 7;
+    optional string language = 8;//语言
 }
