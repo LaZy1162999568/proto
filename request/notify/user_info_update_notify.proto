@@ -6,7 +6,7 @@ option java_package = "im.turms.server.common.access.client.dto.request.notify";
 option java_multiple_files = true;
 option swift_prefix = "";
 
-message userInfoUpdateNotify  {
+message UserInfoUpdateNotify  {
   optional int64 uid = 1;
   optional bool vip =2;
   optional bool addFriend=3;

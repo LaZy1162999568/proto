@@ -152,7 +152,7 @@ message TurmsRequest {
         UpdateConfigNotify update_config_notify = 33;//配置文件修改
         CreateAccountCancellation create_account_cancellation = 34;//注销
         UserUpdatePasswordNotify user_update_password_notify = 35;// 密码更改
-        userInfoUpdateNotify user_info_update_notify = 36;//用户信息更改
+        UserInfoUpdateNotify user_info_update_notify = 36;//用户信息更改
         // Group Member
         CreateGroupMembersRequest create_group_members_request = 11;
         DeleteGroupMembersRequest delete_group_members_request = 12;
