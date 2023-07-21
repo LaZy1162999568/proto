@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package im.turms.proto;
+
+option java_package = "im.turms.server.common.access.client.dto.request.notify";
+option java_multiple_files = true;
+option swift_prefix = "";
+
+message userInfoUpdateNotify  {
+  optional int64 uid = 1;
+  optional bool vip =2;
+  optional bool addFriend=3;
+  optional bool login = 4;
+  optional bool createGroup= 5;
+  optional bool moments = 6;
+}

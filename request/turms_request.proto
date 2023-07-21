@@ -104,6 +104,7 @@ import "request/notify/update_config_notify.proto";//配置文件修改通知
 import "request/user/create_user_status_listener.proto";//配置文件修改通知
 import "request/notify/create_account_cancellation.proto";//配置文件修改通知
 import "request/notify/user_update_password_notify.proto";//密码修改
+import "request/notify/user_info_update_notify.proto";//用户信息修改
 
 // Client -> Server -> Client
 message TurmsRequest {
@@ -151,6 +152,7 @@ message TurmsRequest {
         UpdateConfigNotify update_config_notify = 33;//配置文件修改
         CreateAccountCancellation create_account_cancellation = 34;//注销
         UserUpdatePasswordNotify user_update_password_notify = 35;// 密码更改
+        userInfoUpdateNotify user_info_update_notify = 36;//用户信息更改
         // Group Member
         CreateGroupMembersRequest create_group_members_request = 11;
         DeleteGroupMembersRequest delete_group_members_request = 12;
