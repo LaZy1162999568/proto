@@ -24,8 +24,8 @@ message QueryOfflineNotify  {
       AtSignedMessage at = 2;
       CleanGroupMessage clean_group_message = 3;
       CleanPrivateMessage clean_private_message =4;
-      QuitGroup quit_group = 5;
-      GroupKickOut group_kickOut = 6;
+      QuitGroup quitGroup = 5;
+      GroupKickOut groupKickOut = 6;
     }
   }
 }
