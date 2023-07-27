@@ -6,11 +6,10 @@ option java_package = "im.turms.server.common.access.client.dto.request.notify";
 option java_multiple_files = true;
 option swift_prefix = "";
 import "constant/device_type.proto";
-
+import "constant/device.proto";
 message SessionUserOnlineStatus  {
   optional int64 uid = 1;
-  optional int32 status = 2;//1 在线 2、离线
-  optional string ip = 3;//ip地址
-  optional string address = 4;//ip归属地
-  repeated DeviceType using_device_types = 5;
+  optional bool online = 2;//1 在线 2、离线
+  repeated Device device = 3;
 }
+

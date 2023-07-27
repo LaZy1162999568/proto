@@ -5,16 +5,11 @@ package im.turms.proto;
 option java_package = "im.turms.server.common.access.client.dto.request.user";
 option java_multiple_files = true;
 option swift_prefix = "";
-
+import "constant/device_type.proto";
+import "constant/device.proto";
 message CreateUserStatusLitsener {
   optional int32 type = 1;  //1 监听 2 取消监听
   optional int64 uid = 2;
   optional bool online = 3;
   repeated Device device = 4;
-}
-message Device{
-  optional string ip = 1;
-  optional int64 timestamp = 2;
-  optional int32 type = 3;
-  optional string ipaddr =  4;//ip归属地
 }
