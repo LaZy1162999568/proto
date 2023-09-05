@@ -13,4 +13,5 @@ message GroupApply {
   optional string groupIcon = 4;//群组头像
   optional string nickName = 5;//申请人昵称
   optional string headerImage = 6;//申请人头像
+  optional int32 mode = 7;
 }
